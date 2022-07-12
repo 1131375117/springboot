@@ -9,7 +9,8 @@ import java.lang.annotation.Target;
 
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
-@Conditional(ZhouyuOnClassCondition.class)
-public @interface ZhouyuConditionalOnClass {
-    String value() default "";
+@Conditional(ZhouyuCondition.class)
+public @interface ConditionalOnClass {
+
+    String value();
 }

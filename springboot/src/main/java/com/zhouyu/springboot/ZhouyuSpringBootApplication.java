@@ -13,6 +13,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Configuration
 @ComponentScan
-@Import(ZhouyuImportSelect.class)
+@Import(ZhouyuImportSeclet.class)
 public @interface ZhouyuSpringBootApplication {
 }

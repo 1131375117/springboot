@@ -6,19 +6,19 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 
 import java.util.Map;
 
-public class ZhouyuOnClassCondition implements Condition {
-
+public class ZhouyuCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ZhouyuConditionalOnClass.class.getName());
 
+        Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(ConditionalOnClass.class.getName());
         String className = (String) annotationAttributes.get("value");
 
         try {
             context.getClassLoader().loadClass(className);
             return true;
         } catch (ClassNotFoundException e) {
-            return false;
+           return false;
         }
+
     }
 }

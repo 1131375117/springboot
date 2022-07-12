@@ -4,16 +4,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class WebServiceAutoConfiguration implements AutoConfiguration {
+public class WebServerAutoConfiguration implements AutoConfiguration {
 
     @Bean
-    @ZhouyuConditionalOnClass("org.apache.catalina.startup.Tomcat")
+    @ConditionalOnClass("org.apache.catalina.startup.Tomcat")
     public TomcatWebServer tomcatWebServer(){
         return new TomcatWebServer();
     }
 
     @Bean
-    @ZhouyuConditionalOnClass("org.eclipse.jetty.server.Server")
+    @ConditionalOnClass("org.eclipse.jetty.server.Server")
     public JettyWebServer jettyWebServer(){
         return new JettyWebServer();
     }
